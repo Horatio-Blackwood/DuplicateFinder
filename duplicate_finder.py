@@ -52,8 +52,8 @@ def main(directory, bytes_to_read, files_per_status):
         the screen.
     """
     print("Data Dir:", directory)
-    print("Bytes to Read", bytes_to_read, "\n")
-    print("Report status every", files_per_status, "files.")
+    print("Bytes to Read", bytes_to_read)
+    print("Report status every", files_per_status, "files.\n")
     
     results = {} # md5 signature -> list of file names
     files_read = 0
@@ -103,7 +103,7 @@ def main(directory, bytes_to_read, files_per_status):
 
 if __name__ == "__main__":
     directory = "."
-
+    
     # Run script on current directory,
     # read in 2048 bytes fo each byte and do the hash on that.
     # print process time/stats every 1000 files.
