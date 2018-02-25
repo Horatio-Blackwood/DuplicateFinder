@@ -20,14 +20,14 @@ def print_separator():
 def print_iter_help():
     print("ITER COMMANDS")
     print_separator()
-    print("     help           - prints these options ")
     print("     del <#,#,#...> - deletes the file associated with the number")
     print("                      you entered.  To delete file 2, enter 'del 2'")
     print("                      (without quotes).  To delete files 2 and 5,")
     print("                      enter 'del 2,5' (without quotes).")
+    print("     help           - prints these options ")
+    print("     quit           - exits the program.")
     print("     skip           - skips the current duplicate.")
     print("     status         - prints the number of duplicates removed so far")
-    print("     quit           - exits the program.")
     print_separator()
 
 def get_time_string(start, end):
@@ -50,7 +50,18 @@ def get_time_string(start, end):
     else:
         seconds = diff
 
-    return str(hours) + ":" + str(minutes) + ":" + str(seconds)
+    # String-ify the values
+    seconds = str(seconds)
+    minutes = str(minutes)
+    hours   = str(hours)
+
+    # Pad minutes and seconds with leading zero if necessary.
+    if len(seconds) == 1:
+        seconds = "0" + seconds
+    if len(minutes) == 1:
+        minutes = "0" + minutes
+
+    return hours + ":" + minutes + ":" + seconds
 
 def handle_item(item):
     """ Prints out the tuple (key, val) pair from the results dict in an easy
